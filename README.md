@@ -19,8 +19,6 @@ fetch container id for <user-name>/coe-ui
 
 docker logs <container-id>
 
-6. Home page
-http<s>://host:port/
+6. Home page - http://host:port/
 
-7. Health Check 
-http://host:port/health-check
+7. Health Check - http://host:port/health-check
