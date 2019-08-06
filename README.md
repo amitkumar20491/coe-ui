@@ -20,7 +20,7 @@ fetch container id for <user-name>/coe-ui
 docker logs <container-id>
 
 6. Home page
-http<s>://host:<forwaded-port>/
+http<s>://host:port/
 
 7. Health Check 
-http<s>://host:<forwaded-port>/health-check
+http://host:port/health-check
