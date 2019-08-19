@@ -5,11 +5,16 @@ const constants = require("../utils/constants");
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index');
+  res.redirect('/home');
 });
 
 router.get('/home', function (req, res, next) {
-  res.render('index');
+  console.log(constants.COUNTRY_HOST + constants.COUNTRY_PORT + constants.COUNTRY_PATH);
+  httpClient.get(constants.COUNTRY_HOST, constants.COUNTRY_PORT, constants.COUNTRY_PATH).then(countrys => {
+    res.render('index', {
+      countrys: countrys
+    });
+  });
 });
 
 router.get('/about', function (req, res, next) {
@@ -73,7 +78,9 @@ router.get('/students', function (req, res, next) {
   httpClient.get(constants.STUDENT_HOST, constants.STUDENT_PORT, constants.PATH_ALL_STUDENTS).then(students => {
     res.render('students', {
       data: students,
-      source : source  
+      source : source,
+      studentAppInfo : "",
+      jmsMessage : ""
     });
   });
 });
@@ -106,9 +113,26 @@ router.post('/search-students', function (req, res, next) {
       listStudent = students.studentInfo.listStudent;
     }
 
+    var studentAppInfo;
+    if(!students.studentInfo || !students.studentInfo.studentAppInfo){
+      studentAppInfo = '';
+    }else{
+      studentAppInfo = students.studentInfo.studentAppInfo;
+    }
+
+    var jmsMessage;
+
+    if(!students.jmsMessage){
+      jmsMessage = '';
+    }else{
+      jmsMessage = students.jmsMessage;
+    }
+
     res.render('students', {
       data: listStudent ,
-      source: "search-students"
+      source: "search-students",
+      studentAppInfo : studentAppInfo,
+      jmsMessage : jmsMessage
     });
   });
 });

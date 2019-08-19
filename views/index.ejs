@@ -38,6 +38,32 @@
       </div>
     </div>
   </header>
+
+  <section>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="content-heading text-uppercase">Regions</h2>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="table-wrapper">
+                      <table class="table">
+                          <tbody>
+                              <% for (var i = 0; i < countrys.length; i++) { %>
+                              <tr>
+                                  <td ><%= countrys[i].location %></td>
+                                  <td align="center"><img border="0" alt='<%= countrys[i].location %>' src='<%= countrys[i].flag %>' width="300" height="200"></td>
+                              </tr>
+                              <% } %>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
 </body>
 
 <% include ./partials/footer %>

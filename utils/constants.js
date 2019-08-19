@@ -9,5 +9,8 @@ module.exports =  Object.freeze({
     PROTOCOL: process.env.PROTOCOL || "http",
     PATH_ALL_STUDENTS : "/api/student/all",
     PATH_ADD_STUDENT : "/api/student/createstudent",
-    PATH_SEARCH_STUDENTS_BY_SCHOOL : "/api/school/getStudentsBySchool/"
+    PATH_SEARCH_STUDENTS_BY_SCHOOL : "/api/school/getStudentsBySchool/",
+    COUNTRY_HOST : process.env.COUNTRY_HOST || "10.150.232.136",
+    COUNTRY_PORT : process.env.COUNTRY_PORT || "8083",
+    COUNTRY_PATH : "/deployedCountryInfo",
   });
